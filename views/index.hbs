@@ -1,0 +1,33 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+<h2>List of restaurants</h2>
+
+<ul>
+  {{#each restaurants}}
+    <li>
+      <p>{{this.name}}</p>
+      <p>{{this.description}}</p>
+      <img src="{{this.imageUrl}}">
+    </li>
+  {{/each}}
+</ul>
+
+
+<h2>Upload a new pic</h2>
+
+<form action='/' method="post" enctype="multipart/form-data">
+  <input type="text" name="name">
+
+  <input type="text" name="description">
+
+  <input type='file' name='image' accept="image/*"/>
+
+  <button type="submit">Create Restaurant</button>
+</form>
+
+{{#if messages.length}}
+<ul class="validation">
+  {{#each messages}}<li>{{this}}</li>{{/each}}
+</ul>
+{{/if}}
